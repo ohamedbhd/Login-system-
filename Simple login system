@@ -1,0 +1,200 @@
+#include <iostream>
+using namespace std;
+
+void Design()
+{
+    cout <<"\n";
+}
+
+bool login ()
+{
+
+    string UserName, Passw;
+    string my_Name= "mohamed", my_passw= "1234";
+    cout <<"   ■■■■■■■■■■■■■■■■■■■■ login ■■■■■■■■■■■■■■■■■■■■\n \n";
+    cout << "enter your name: ";
+    cin >> UserName;
+
+    cout << "enter your password: ";
+    cin >> Passw;
+    Design();
+    return (UserName==my_Name&&Passw==my_passw);
+
+}
+
+void Calculator ()
+{
+    double num1, num2;
+    char op;
+
+    cout <<"   ■■■■■■■■■■■■■■■ slot calculator ■■■■■■■■■■■■■■■\n\n" ;
+
+    cout << "enter Number ( 1 ): ";
+    cin >> num1;
+
+    cout << "enter your [ + , - , * , / ]: ";
+    cin >> op;
+
+    cout << "enter Number ( 2 ): ";
+    cin >> num2;
+
+    Design();
+
+    switch (op)
+    {
+    case '+' :
+        cout << num1 << " + " << num2<<" = "<< num1 + num2 << endl;
+        break;
+    case '-' :
+        cout << num1 << " - " << num2 << " = " << num1 - num2 << endl ;
+        break;
+
+    case '*' :
+        cout << num1 << " * " << num2 << " = " << num1 * num2 << endl ;
+        break;
+
+    case '/' :
+        if (num2 ==0)
+        {
+            cout << "The number you entered is not divisible by zero\n";
+        }
+        else
+        {
+            cout << num1 << " / " << num2 << " = " << num1 / num2 << endl ;
+        }
+        break;
+    default:
+        cout <<"Eerro";
+    }
+
+}
+
+void checkSign ()
+{
+    int num;
+    cout <<"enter your number: ";
+    cin >> num;
+    Design();
+
+    if (num >=0)
+    {
+        cout <<"The number is positive \n";
+        Design();
+    }
+    else
+    {
+        cout <<"The number is negative \n";
+        Design();
+    }
+
+}
+
+void checkEvenOdd()
+{
+    int num;
+    cout <<"enter your number: ";
+    cin >> num;
+    Design();
+
+    if (num % 2 == 0)
+    {
+        cout <<"Even number\n";
+        Design();
+    }
+    else
+    {
+        cout <<"Odd number\n";
+        Design();
+    }
+}
+
+void Show_Menu()
+{
+    int choice;
+    while (true)
+    {
+
+        Design();
+        cout << "   ■■■■■■■■■■■■■■■■■■ Main Menu ■■■■■■■■■■■■■■■■■■ \n \n";
+
+        cout << "1- Python\n \n";
+        cout << "2- C++\n \n";
+        cout << "3- java\n \n";
+        cout << "4- java Script\n \n";
+        cout << "5- Calculator\n \n";
+        cout << "6- Positive or negative\n \n";
+        cout << "7- Even or Odd\n \n";
+        cout << "8- Exit\n\n";
+        Design();
+        cout << "                  ■■■■■■■■■■■■■■■■■■ \n";
+        cout << "enter your choice: ";
+        cin >> choice;
+        Design();
+
+        switch(choice)
+        {
+
+        case 1:
+            cout<<"Python is used in Cyber Security and AI\n";
+            break;
+        case 2:
+            cout<<"C++ is used in systems and performance applications\n";
+            break;
+        case 3:
+            cout<<"Java is used in large systems and Android apps\n";
+            break;
+        case 4:
+            cout<<"JavaScript is used for web development\n";
+            break;
+        case 5:
+            Calculator();
+            break;
+        case 6 :
+            checkSign();
+            break;
+        case 7 :
+            checkEvenOdd();
+            break;
+        case 8 :
+            cout<<"Goodbye\n";
+            return;
+        default:
+
+            cout <<"Invalid choice\n";
+
+        }
+    }
+}
+int main()
+{
+    int attempts = 3;
+    bool TheSuccess = false;
+
+    while (attempts > 0 )
+    {
+        if (login() == 1)
+        {
+
+            cout << "Signed in successfully\n";
+            TheSuccess= true;
+            break;
+        }
+        else
+        {
+            attempts--;
+            cout <<"Wrong data please try again: " << attempts <<endl;
+            Design();
+        }
+
+    }
+
+    if (TheSuccess)
+    {
+        Show_Menu();
+    } else
+    {
+        cout << "\nAccount locked \n\n";
+    }
+
+    return 0;
+}
